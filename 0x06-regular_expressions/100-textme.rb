@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
-Format = ARGV[0].scan(/from:(.\w+)|to:(.\w+)|flags:([0-9:-]+)/)
-List = [Format[0].compact, Format[1].compact, Format[2].compact]
-puts List.join(',')
+print ARGV[0].scan(/from:.\w*/).join.slice(5..-1)
+print ","
+print ARGV[0].scan(/to:.\w*/).join.slice(3..-1)
+print ","
+puts ARGV[0].scan(/flags:(-?\d:?)(-?\d:?)(-?\d:?)(-?\d:?)(-?\d:?)/).join
